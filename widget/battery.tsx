@@ -14,23 +14,26 @@ const status = createBinding(battery, "state")
 function TimeRem() {
     const [timeToEmpty, timeToFull] = [createBinding(battery, "time_to_empty"), 
     createBinding(battery, "time_to_full")];
-    const [tte, ttf] = [createComputed(() => `Time to empty: ${(timeToEmpty() / 60) / 60} hours`), createComputed(() => `Time to full: ${(timeToFull() / 60) / 60} hours`)];
-    let labalForTimeRem;
+    // const [tte, ttf] = [createComputed(() => `Time to empty: ${(timeToEmpty() / 60) / 60} hours`), createComputed(() => `Time to full: ${(timeToFull() / 60) / 60} hours`)];
+    // let labalForTimeRem;
     
 
     // TODO: make this switch statement somehow dynamic so it changes whenever you click on it.
-    switch (status()) {
-        case 1:
-            labalForTimeRem = ttf;
-             break;
-        case 2:
-             labalForTimeRem = tte;
-             break;
-        default:
-            labalForTimeRem = "Time to empty: Unknown"
-    }
+    // DONE
+    
+    const text = createComputed(() => {
+
+        switch (status()) {
+            case 1:
+                return `Time to full: ${(timeToFull() / 60) / 60} hours`;
+            case 2:
+                 return `Time to empty: ${(timeToEmpty() / 60) / 60} hours`;
+            default:
+                return "Time to empty: Unknown"
+        }
+    })
     return (
-        <label label={labalForTimeRem} />
+        <label label={text}/>
     )
 
 }   
