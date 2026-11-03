@@ -1,0 +1,53 @@
+// Catppuccin Mocha palette
+$base: #1e1e2e;
+$mantle: #181825;
+$crust: #11111b;
+
+$text: #cdd6f4;
+$subtext0: #a6adc8;
+$surface0: #313244;
+
+$rosewater: #f5e0dc;
+$flamingo: #f2cdcd;
+$pink: #f5c2e7;
+$mauve: #cba6f7;
+$red: #f38ba8;
+
+window.Bar {
+  background: transparent;
+  color: $text;
+  font-weight: bold;
+
+  > centerbox {
+    background: transparent;
+    border-radius: 10px;
+    margin: 8px;
+  }
+  button {
+    background: $surface0;
+    color: $pink;
+    border-radius: 15px;
+    margin: 2px;
+    outline: none;
+    transition: background-color 250ms ease-in-out, border-radius 250ms ease-in-out;
+  }
+
+  
+  button:hover {
+    background: $flamingo;
+    color: $mantle;
+    border-radius: 6px;
+  }
+ 
+  .active {
+    background: $mauve;
+    color: $base;
+    border-radius: 6px;
+    outline: none;
+  }
+
+  .active:hover {
+    background: $red;
+    color: $crust;
+  }
+}
