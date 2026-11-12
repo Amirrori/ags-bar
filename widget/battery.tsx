@@ -8,7 +8,7 @@ import { Astal, Gtk, Gdk} from "ags/gtk4"
 // UPDATE: instead of hover I'll just make a box and put information in it(inspired by kde)
 
 const battery = Battery.get_default()
-const status = createBinding(battery, "state")
+const status = createBinding(battery, "state");
 
 
 function formatTime(seconds: number) {

@@ -5,7 +5,7 @@ import Time from "./time.tsx"
 import HyprWorkspaces from "./workspaces.tsx"
 import BatteryFetch from "./battery.tsx"
 
-import Wp from "gi://AstalWp"
+// import Wp from "gi://AstalWp"
 
 
 import Tray from "gi://AstalTray"

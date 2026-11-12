@@ -14,14 +14,14 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       astal = ags.packages.${system};
+      lib = nixpkgs.lib;
+
+      # names from libraries.txt, skipping blank lines and # comments
+      libraries = builtins.filter (line: line != "" && !(lib.hasPrefix "#" line))
+        (map lib.strings.trim (lib.splitString "\n" (builtins.readFile ./libraries.txt)));
 
       agsWithLibs = astal.ags.override {
-        extraPackages = [
-          astal.hyprland
-          astal.battery
-          astal.wireplumber
-          astal.tray
-        ];
+        extraPackages = map (name: astal.${name}) libraries;
       };
     in
     {
