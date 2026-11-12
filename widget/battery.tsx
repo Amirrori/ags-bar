@@ -11,6 +11,13 @@ const battery = Battery.get_default()
 const status = createBinding(battery, "state")
 
 
+function formatTime(seconds: number) {
+    if (seconds <= 0) return "Fetching.."
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    return `${hours}hrs ${minutes}mins`
+}
+
 function TimeRem() {
     const [timeToEmpty, timeToFull] = [createBinding(battery, "time_to_empty"), 
     createBinding(battery, "time_to_full")];
@@ -25,9 +32,9 @@ function TimeRem() {
 
         switch (status()) {
             case 1:
-                return `Time to full: ${Math.floor(timeTofull % 3600 / 60)}h ${Math.round(timeToFull % 3600 / 60)}`;
+                return `Time to full: ${formatTime(timeToFull())}`
             case 2:
-                 return `Time to empty: ${(timeToEmpty() / 60) / 60} hours`;
+                 return `Time to empty: ${formatTime(timeToEmpty())}`;
             default:
                 return "Time to empty: Unknown"
         }
