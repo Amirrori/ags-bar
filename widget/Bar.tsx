@@ -26,15 +26,15 @@ import { createState, createBinding, createComputed } from "ags"
 //
 // getTray()
 
-const wp = Wp.get_default()
+// const wp = Wp.get_default()
 
-const speaker = wp.audio.default_speaker
+// const speaker = wp.audio.default_speaker
 
-const volume = createBinding(speaker, "volume")
-volume.subscribe(v => {
+// const volume = createBinding(speaker, "volume")
+// volume.subscribe(v => {
 
-print(Math.trunc(volume() * 100))
-})
+// print(Math.trunc(volume() * 100))
+// })
 
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
