@@ -29,14 +29,27 @@ function TimeRem() {
     // DONE
     
     const text = createComputed(() => {
+    // Context because the numbers seem arbitrary: 
+    // UPower has 7 battery states
+    // 0: UNKNOWN, 1: CHARGING, 2: DISCHARGING, 3: EMPTY, 4: FULLY_CHARGED, 5: PENDING_CHARGE, 6: PENDING_DISCHARGE.
 
         switch (status()) {
+            case 0: 
+                return "Unknown";
             case 1:
                 return `Time to full: ${formatTime(timeToFull())}`
             case 2:
                  return `Time to empty: ${formatTime(timeToEmpty())}`;
+            case 3:
+                return "Battery empty";
+            case 4:
+                return "Fully charged";
+            case 5:
+                return "Not charging";
+            case 6:
+                return "Not discharging yet";
             default:
-                return "Time to empty: Unknown"
+                return "Invalid state"
         }
     })
     return (
