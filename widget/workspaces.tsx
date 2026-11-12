@@ -21,7 +21,7 @@ export default function HyprWorkspaces() {
     // const monitor = hyprland.get_monitor(0)
     // print(monitor.get_id())
     
-    const workspaces = createBinding(hyprland, "workspaces").as(wss => [...wss].sort((a, b) => a.id - b.id))
+    const workspaces = createBinding(hyprland, "workspaces").as(wss => [...wss].filter(ws => ws.id > 0).sort((a, b) => a.id - b.id))
     // const workspacesIDs = []
     const focused = createBinding(hyprland, "focused-workspace");
     // workspaces.forEach((workspace) => {
