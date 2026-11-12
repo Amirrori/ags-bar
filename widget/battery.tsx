@@ -25,7 +25,7 @@ function TimeRem() {
 
         switch (status()) {
             case 1:
-                return `Time to full: ${(timeToFull() / 60) / 60} hours`;
+                return `Time to full: ${Math.floor(timeTofull % 3600 / 60)}h ${Math.round(timeToFull % 3600 / 60)}`;
             case 2:
                  return `Time to empty: ${(timeToEmpty() / 60) / 60} hours`;
             default:
@@ -58,5 +58,4 @@ export default function BatteryFetch() {
         </box>
     );
 }
-
 

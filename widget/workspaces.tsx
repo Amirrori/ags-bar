@@ -41,8 +41,8 @@ export default function HyprWorkspaces() {
             <For each={workspaces}>
                 {(ws) => (
 
-                    <button onClicked={() => ws.focus()} class={focused.as(active => ws.id === active.id ? "active" : "")}>
-                        <label label={String(ws.id)} />
+                    <button onClicked={() => ws.focus()} class={focused.as(active => ws.id === active?.id ? "active" : "")}>
+                    <label label={createBinding(ws, "id").as(String)} />
                     </button>
                 )}
             </For>
