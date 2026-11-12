@@ -60,7 +60,7 @@ function TimeRem() {
 export default function BatteryFetch() {
     const percentage = createBinding(battery, "percentage");
     // TODO check battery percentage and adjust the charge level based on that 
-    const icons = ["?", "\ueb2d", "\uf241", "DUCK", "Full", "\uf1e6 \uf240", "\uf241"]
+    const icons = ["?", "\ueb2d", "\uf241", "\uf244", "\uf240", "\uf1e6 \uf240", "\uf241"]
     const [perc, icon, tte, ttf] = [createComputed(() => `${Math.round(percentage() * 100)}%`), createComputed(() => `${icons[status()] ?? "?"}`)];
     const BATlabel = createComputed(() => icon() + "   " + perc());
 
